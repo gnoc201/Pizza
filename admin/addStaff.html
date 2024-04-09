@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body onload="renderStaff()">
+    <div class="container jumbotron ">
+        <div class="row text-center form-group ">
+            <div class="col-sm-4 form-group ">
+                <div class="row form-group text-center">
+                    <div class="col-sm-12">
+                        <h3>Thêm nhân viên</h3>
+                    </div>
+                </div>
+                <div class="row form-group text-center">
+                    <div class="col-sm-4">
+                        <label for="">Mã nv</label>
+                    </div>
+                    <div class="col-sm-8 w-100">
+                        <input type="text" name="" id="ma-nv">
+                    </div>
+                </div>
+                <div class="row form-group text-center">
+                    <div class="col-sm-4">
+                        <label for="">Họ tên</label>
+                    </div>
+                    <div class="col-sm-8 w-100">
+                        <input type="text" name="" id="ho-ten">
+                    </div>
+                </div>
+                <div class="row form-group text-center">
+                    <div class="col-sm-4">
+                        <label for="">Tuổi</label>
+                    </div>
+                    <div class="col-sm-8 w-100">
+                        <input type="text" name="" id="age">
+                    </div>
+                </div>
+                <div class="row form-group text-center">
+                    <div class="col-sm-4">
+                        <label for="">Chức vụ</label>
+                    </div>
+                    <div class="col-sm-8 w-100">
+                        <input type="text" name="" id="position">
+                    </div>
+                </div>
+                <div class="row form-group text-center">
+                    <div class="col-sm-6">
+                        <button onclick="onBtnSaveClick()" class="btn btn-info btn-block"> Lưu </button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-info btn-block"><a href="../addsp.html"> Thêm sản phẩm</a></button>
+                    </div>
+                </div>
+            </div>
+            <div id="list" class="col-sm-8 bg-light form-group ">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h3> Danh sách nhân viên</h3>
+                    </div>
+                </div>
+                <div class="row text-center form-group">
+                    <div class="col-12 form-group">
+                        <table class=" table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Mã nv</th>
+                                    <th>Họ tên</th>
+                                    <th>Tuổi</th>
+                                    <th>Chức vụ</th>
+                                    <th>Hàng động</th>
+                                </tr>
+                                <!-- <tr>
+                                    <th>01</th>
+                                    <th>Nguyễn Công</th>
+                                    <th>24</th>
+                                    <th>Quản lý</th>
+                                    <th><a href="" >Delete</a></th>
+                                </tr> -->
+                                
+                                
+                            </thead>
+                            <tbody id="staff">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>

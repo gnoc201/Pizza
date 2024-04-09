@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body onload="onPageLoad()">
+    <div class="container jumbotron-fluid">
+        <p class="h3 text-center mt-5 mb-3">Order Detail</p>
+        <div class="row form-group">
+            <div class="col-6">
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">OrderCode</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-ordercode">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Đường kính Pizza</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-duong-kinh">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Đồ Uống</label>
+                    </div>
+                    <div class="col-8">
+                        <select name="" id="select-drink" class="form-control">
+                            <option value="NOT_SELECT_DRINK">Chọn đồ uống</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">VoucherID</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-voucherid">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Salad</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-salad">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Giảm giá</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-discount">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Email</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-email">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Địa chỉ</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-diachi">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Trạng thái</label>
+                    </div>
+                    <div class="col-8">
+                        <select name="" id="select-status" class="form-control">
+                            <option value="NOT_SELECT_STATUS">Trạng thái</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Ngày cập nhật</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-update">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Cỡ combo</label>
+                    </div>
+                    <div class="col-8">
+                        <select name="" id="select-combo" class="form-control">
+                            <option value="NOT_SELECT_COMBO">Chọn combo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Sườn nướng</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-suon-nuong">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">số lượng nước uống</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-number-drink">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Loại pizza</label>
+                    </div>
+                    <div class="col-8">
+                        <select name="" id="select-pizza" class="form-control">
+                            <option value="NOT_SELECT_PIZZA">Chọn loại pizza</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Thành tiền</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-prices">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Họ và tên</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-fullname">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Số điện thoại</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-phone">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">lời nhắn</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-loi-nhan">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-4">
+                        <label for="">Ngày tạo đơn</label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="" id="inp-ngay-tao">
+                    </div>
+                </div>
+                <div class="row form-group text-center">
+
+                    <div class="col-6">
+                        <button onclick="onBtnUpdateOrderClick()" class="btn btn-info">Confirm</button>
+                    </div>
+                    <div class="col-6">
+                        <a onclick="onBtnCancelOrderClick()"  class="btn btn-danger">Cencel</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    const gREQUEST_STATUS_OK = 200;
+    const gREQUEST_READY_STATUS_FINISH_AND_OK = 4;
+    const gREQUEST_CREATE_SUCCESS = 201;
+     const gBASE_URL = "http://203.171.20.210:8080/devcamp-pizza365/orders";
+    function onPageLoad() {
+        var vUrlString = window.location.href;
+        var vUrl = new URL(vUrlString);
+        console.log(vUrl);
+
+        var vOrderCode = vUrl.searchParams.get("orderCode");
+        console.log(vOrderCode);
+        var vId = vUrl.searchParams.get("id");
+        console.log(vId);
+        if(vOrderCode == null || vId == ""){
+            alert( "id va ordercode k ton tai");
+            window.location.href = "viewOrder.html";
+        } else if(vOrderCode == "" || vId == null){
+            alert( "id va ordercode khong ton tai");
+            window.location.href = "viewOrder.html"; 
+        }
+
+        var vXmlHttpGetAllOrder = new XMLHttpRequest();
+        callApiGetAllOrder(vXmlHttpGetAllOrder,vOrderCode);
+        vXmlHttpGetAllOrder.onreadystatechange =
+        function () {
+            if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+                var vOrderList = vXmlHttpGetAllOrder.responseText;
+                console.log(vOrderList);
+                showDataToForm(vXmlHttpGetAllOrder)
+            }
+        }
+    }
+    function callApiGetAllOrder(paramXmlHttp,paramOderCode){
+        paramXmlHttp.open("GET", gBASE_URL + "/" + paramOderCode, true);
+        paramXmlHttp.send();
+    }
+    function showDataToForm(paramXmlHttp){
+        var vOrderObj = JSON.parse(paramXmlHttp.responseText);
+
+        var vInpOrderCode = document.getElementById("inp-ordercode");
+        var vGetOrderCode = vOrderObj.orderCode;
+        vInpOrderCode.value = vGetOrderCode;
+
+        var vInpDuongKinh = document.getElementById("inp-duong-kinh");
+        var vGetDuongKinh = vOrderObj.duongKinh;
+        vInpDuongKinh.value = vGetDuongKinh;
+
+        var vSelectDoUong = document.getElementById("select-drink");
+        var vGetDoUong = vOrderObj.idLoaiNuocUong;
+        vSelectDoUong.options[vSelectDoUong.selectedIndex].text = vGetDoUong;
+
+        var vInpVoucher = document.getElementById("inp-voucherid");
+        var vGetIDVoucher = vOrderObj.idVourcher;
+        vInpVoucher.value = vGetIDVoucher;
+
+        var vInpSalad = document.getElementById("inp-salad");
+        var vGetSalad = vOrderObj.salad;
+        vInpSalad.value = vGetSalad;
+
+        var vInpGiamGia = document.getElementById("inp-discount");
+        var vGetGiamGia = vOrderObj.giamGia;
+        vInpGiamGia.value = vGetGiamGia;
+
+        var vInpEmail = document.getElementById("inp-email");
+        var vGetEmail = vOrderObj.email;
+        vInpEmail.value = vGetEmail;
+
+        var vInpDiaChi = document.getElementById("inp-diachi");
+        var vGetDiaChi = vOrderObj.diaChi;
+        vInpDiaChi.value = vGetDiaChi;
+
+        var vSelectTrangThai = document.getElementById("select-status");
+        var vGetTrangThai = vOrderObj.trangThai;
+        vSelectTrangThai.options[vSelectTrangThai.selectedIndex].text = vGetTrangThai;
+
+        var vInpNgayCapNhat = document.getElementById("inp-update");
+        var vGetNgayCapNhat = vOrderObj.ngayCapNhat;
+        vInpNgayCapNhat.value = vGetNgayCapNhat;
+
+        var vSelecteKichCo = document.getElementById("select-combo");
+        var vKichCo = vOrderObj.kichCo;
+        vSelecteKichCo.options[vSelecteKichCo.selectedIndex].text = vKichCo;
+
+        var vInpSuonNuong = document.getElementById("inp-suon-nuong");
+        var vGetSuon = vOrderObj.suon;
+        vInpSuonNuong.value = vGetSuon;
+
+        var vInpSoLuongNuoc = document.getElementById("inp-number-drink");
+        var vGetSoLuongNuoc = vOrderObj.soLuongNuoc;
+        vInpSoLuongNuoc.value = vGetSoLuongNuoc;
+
+        var vSelectLoaiPizza = document.getElementById("select-pizza");
+        var vGetLoaiPizza = vOrderObj.loaiPizza;
+        vSelectLoaiPizza.options[vSelectLoaiPizza.selectedIndex].text = vGetLoaiPizza
+
+        var vInpThanhTien = document.getElementById("inp-prices");
+        var vGetThanhTien = vOrderObj.thanhTien;
+        vInpThanhTien.value = vGetThanhTien;
+        
+        var vInpHoTen = document.getElementById("inp-fullname");
+        var vGetFullname  = vOrderObj.thanhTien;
+        vInpHoTen.value = vGetFullname;
+
+        var vInpSoDienThoai = document.getElementById("inp-phone");
+        var vGetSoDienThoai = vOrderObj.soDienThoai;
+        vInpSoDienThoai.value = vGetSoDienThoai;
+        
+        var vInpLoiNhan = document.getElementById("inp-loi-nhan");
+        var vGetLoiNhan = vOrderObj.loiNhan;
+        vInpLoiNhan.value = vGetLoiNhan;
+
+        var vInpNgayTao = document.getElementById("inp-ngay-tao");
+        var vGetNgayTao = vOrderObj.ngayTao;
+        vInpNgayTao.value = vGetNgayTao;
+        
+    }
+    function onBtnUpdateOrderClick(){
+        var vUrlString = window.location.href;
+        var vUrl = new URL(vUrlString);
+
+        var vId = vUrl.searchParams.get("id");
+        console.log(vId);
+
+        var vXmlHttpUpdateOrder = new XMLHttpRequest();
+        callApiUpdateOrder(vXmlHttpUpdateOrder,vId);
+        vXmlHttpUpdateOrder.onreadystatechange =
+            function () {
+                if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+                    var vUpdatedOrder = vXmlHttpUpdateOrder.responseText;
+                    console.log(vUpdatedOrder);
+                }
+            }
+
+    }
+    function callApiUpdateOrder(paramXmlHttp,paramOderId){
+        var vObjectRequest = {
+            trangThai: "confirmed" //3 trạng thái: open, confirmed, cancel
+        }
+        paramXmlHttp.open("PUT", gBASE_URL + "/" + paramOderId);
+        paramXmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        paramXmlHttp.send(JSON.stringify(vObjectRequest));
+    }
+    //cancel
+    function onBtnCancelOrderClick(){
+        var vUrlString = window.location.href;
+        var vUrl = new URL(vUrlString);
+
+        var vId = vUrl.searchParams.get("id");
+        console.log(vId);
+
+        var vXmlHttpCancelOrder = new XMLHttpRequest();
+        callApiCancelOrder(vXmlHttpCancelOrder,vId);
+        vXmlHttpCancelOrder.onreadystatechange =
+            function () {
+                if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+                    var vCancelOrder = vXmlHttpCancelOrder.responseText;
+                    console.log(vCancelOrder);
+                }
+            }
+
+    }
+    function callApiCancelOrder(paramXmlHttp,paramOderId){
+        var vObjectRequest = {
+            trangThai: "cancel" //3 trạng thái: open, confirmed, cancel
+        }
+        paramXmlHttp.open("PUT", gBASE_URL + "/" + paramOderId);
+        paramXmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        paramXmlHttp.send(JSON.stringify(vObjectRequest));
+    }
+</script>
+
+</html>

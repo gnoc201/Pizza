@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body onload="onLoadPage()">
+    <div class=" container-fluid">
+        <div class="title text-center ">
+            <h2> Danh Sách Đơn Hàng</h2>
+        </div>
+        <div class="content text-center">
+            <table id="table-order" class="table table-bordered table-hover table-striped  form-group">
+                <thead>
+                    <tr>
+                        <th>OrderCode</th>
+                        <th>Kích cỡ combo</th>
+                        <th>Loại pizza</th>
+                        <th>Nước uống</th>
+                        <th>Thành Tiền</th>
+                        <th>Học và tên</th>
+                        <th>Số điện thoại</th>
+                        <th>Trạng thái</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    "use strict";
+    const gREQUEST_STATUS_OK = 200;
+    const gREQUEST_READY_STATUS_FINISH_AND_OK = 4;
+    const gREQUEST_CREATE_SUCCESS = 201;
+    const gBASE_URL = "http://203.171.20.210:8080/devcamp-pizza365/orders";
+
+    function onLoadPage() {
+        var vXmlHttpGetOrder = new XMLHttpRequest;
+        callApiGetOrder(vXmlHttpGetOrder);
+        vXmlHttpGetOrder.onreadystatechange = function () {
+            if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+                // console.log(vXmlHttpGetOrder.responseText);
+                loadOrder(vXmlHttpGetOrder)
+            }
+        }
+    }
+
+    function callApiGetOrder(paramXmlHttp) {
+        paramXmlHttp.open("GET", gBASE_URL, true);
+        paramXmlHttp.send();
+    }
+
+
+
+    function loadOrder(paramXmlHttp) {
+        var vOrder = JSON.parse(paramXmlHttp.responseText);
+        // console.log(vOrder);
+        var vOrderTable = document.getElementById("table-order");
+        var vOrderTBody = vOrderTable.getElementsByTagName("tbody")[0];
+
+        vOrderTBody.innerHTML = "";
+
+        for (var bI = 0; bI < vOrder.length; bI++) {
+            var bNewRow = vOrderTBody.insertRow(-1);
+
+            var bOrderCode = bNewRow.insertCell(0);
+            bOrderCode.innerHTML = vOrder[bI].orderCode;
+            var bKichCo = bNewRow.insertCell(1);
+            bKichCo.innerHTML = vOrder[bI].kichCo;
+            var bLoaiPizza = bNewRow.insertCell(2);
+            bLoaiPizza.innerHTML = vOrder[bI].loaiPizza;
+            var bNuocUong = bNewRow.insertCell(3);
+            bNuocUong.innerHTML = vOrder[bI].idLoaiNuocUong;
+            var bThanhTien = bNewRow.insertCell(4);
+            bThanhTien.innerHTML = vOrder[bI].thanhTien;
+            var bHoTen = bNewRow.insertCell(5);
+            bHoTen.innerHTML = vOrder[bI].hoTen;
+            var bSoDienThoai = bNewRow.insertCell(6);
+            bSoDienThoai.innerHTML = vOrder[bI].soDienThoai;
+            var bTrangThai = bNewRow.insertCell(7);
+            bTrangThai.innerHTML = vOrder[bI].trangThai;
+
+            var vBtnDetail = document.createElement("button");
+            vBtnDetail.innerHTML = "Chi tiết";
+            vBtnDetail.className = "btn btn-primary";
+            vBtnDetail.setAttribute("data-ordercode", vOrder[bI].orderCode);
+            vBtnDetail.setAttribute("data-id", vOrder[bI].id);
+            // vBtnDetail.setAttribute("onclick", 'onBtnDetailClick(this)');
+            var bDetail = bNewRow.insertCell(8)
+            bDetail.appendChild(vBtnDetail)
+            vBtnDetail.addEventListener("click", function () {
+                onBtnOrderDetailClick(this)
+            })
+
+        }
+    }
+
+    function onBtnOrderDetailClick(paramOderDetail) {
+        var vId = paramOderDetail.dataset.id;
+        var vOrderCode = paramOderDetail.dataset.ordercode;
+        console.log("id:", vId);
+        // console.log("orderCode:", vOrderCode);
+        var vUrlDetail = "orderDetail.html" + "?" +
+            "id=" + vId +
+            "&orderCode=" + vOrderCode;
+        window.location.href = vUrlDetail;
+
+    }
+
+
+
+</script>
+
+</html>

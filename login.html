@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+
+<body style="background: url(images/1.jpg); background-repeat: no-repeat; background-size: cover;">
+    <div class="container  text-center form" style="padding: 100px;" >
+        <div class=" form container" style="width: 500px;  height: 400px;padding: 30px 10px;">
+            <h2 class="text-light">Đăng Nhập</h2>
+            <div class="row form-group " style="padding: 10px;">
+                <div class="col-sm-4 form-group">
+                    <label style="font-size: .9em;
+                    color: #fff;
+                    letter-spacing: 1px;
+                    text-align: right;
+                    display: inherit;" for="">Username</label>
+                </div>
+                <div class="col-sm-8 form-group">
+                    <input type="text" name="" id="username" style="outline: none;
+                    font-size: .9em;
+                    padding: 1em 3em 1em 1em;
+                    border: none;
+                    margin-bottom: 0.3em;
+                    background: rgba(255, 255, 255, 0.85);
+                    width: 82%;
+                    color: #000;
+                    border-radius: 30px;
+                    font-weight: 400;
+                    font-family: 'Open Sans', sans-serif;
+                    letter-spacing: 1px;">
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label style="font-size: .9em;
+                    color: #fff;
+                    letter-spacing: 1px;
+                    text-align: right;
+                    display: inherit;" for="">Password</label>
+                </div>
+                <div class="col-sm-8 form-group">
+                    <input id="pass" type="password" style="outline: none;
+                    font-size: .9em;
+                    padding: 1em 3em 1em 1em;
+                    border: none;
+                    margin-bottom: 0.3em;
+                    background: rgba(255, 255, 255, 0.85);
+                    width: 82%;
+                    color: #000;
+                    border-radius: 30px;
+                    font-weight: 400;
+                    font-family: 'Open Sans', sans-serif;
+                    letter-spacing: 1px; ">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4 form-group">
+                    <button onclick="onBtnLogin()" style="color: white;
+                    background: #ea2858;
+                    border: none;
+                    padding: .7em 0;
+                    outline: none;
+                    width: 80%;
+                    font-size: 1em;
+                    cursor: pointer;
+                    letter-spacing: 1px;
+                    font-weight: 400;
+                    font-family: 'Open Sans', sans-serif;
+                    transition: 0.5s all;
+                    -webkit-transition: 0.5s all;
+                    -o-transition: 0.5s all;
+                    -moz-transition: 0.5s all;
+                    -ms-transition: 0.5s all;
+                    border-radius: 30px;" class="">Đăng nhập</button>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <button style="color: white;
+                    background: #ea2858;
+                    border: none;
+                    padding: .7em 0;
+                    outline: none;
+                    width: 80%;
+                    font-size: 1em;
+                    cursor: pointer;
+                    letter-spacing: 1px;
+                    font-weight: 400;
+                    font-family: 'Open Sans', sans-serif;
+                    transition: 0.5s all;
+                    -webkit-transition: 0.5s all;
+                    -o-transition: 0.5s all;
+                    -moz-transition: 0.5s all;
+                    -ms-transition: 0.5s all;
+                    border-radius: 30px;" class=""><a style="text-decoration: none; color: #fff;" href="dangky.html">Đăng ký</a></button>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <button onclick="onBtnAdmin()" style="color: white;
+                    background: #ea2858;
+                    border: none;
+                    padding: .7em 0;
+                    outline: none;
+                    width: 80%;
+                    font-size: 1em;
+                    cursor: pointer;
+                    letter-spacing: 1px;
+                    font-weight: 400;
+                    font-family: 'Open Sans', sans-serif;
+                    transition: 0.5s all;
+                    -webkit-transition: 0.5s all;
+                    -o-transition: 0.5s all;
+                    -moz-transition: 0.5s all;
+                    -ms-transition: 0.5s all;
+                    border-radius: 30px;" class="">Admin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+ <script>
+    function onBtnAdmin(){
+        var vObj ={
+            username:"",
+            pass:""
+        }
+        
+        readForm(vObj)
+        var validate = validateForm(vObj)
+        if(validate){
+            if (vObj.username === "admin" && vObj.pass === "12354") {
+                window.location.href = "admin/addStaff.html";
+            }else{
+                alert("sai thông tin đăng nhập")
+            }
+        }
+    }
+    function onBtnLogin(){
+        var vObj ={
+            username:"",
+            pass:""
+        }
+        readForm(vObj)
+        var validate = validateForm(vObj)
+        if(validate){
+            if (vObj.username === "0601" && vObj.pass === "12354") {
+                window.location.href = "index.html";
+            }else{
+                alert("sai thông tin đăng nhập")
+            }
+        }
+    }
+    function readForm(paramObj){
+        var vUsername = document.getElementById("username");
+        var vPass = document.getElementById("pass");
+        paramObj.username = vUsername.value;
+        paramObj.pass = vPass.value;
+    }
+    function validateForm(paramObj){
+        if(paramObj.username ==""){
+            alert("bạn cần nhập thông tin");
+            return false;
+        }else if (paramObj.pass =="") {
+            alert("bạn cần nhập thông tin")
+            return false
+        }
+        return true
+    }
+    function onBtnDangKy(){
+
+    }
+ </script>
+</html>
